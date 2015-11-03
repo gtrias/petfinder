@@ -1,0 +1,30 @@
+<head>
+  <title>Petfinder</title>
+</head>
+
+<body>
+  <h1>Welcome to Petfinder!</h1>
+
+  {{> petList}}
+
+  {{> petForm}}
+
+</body>
+
+<template name="petList">
+  <ul>
+    {{#each pets}}
+      {{> petRow}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="petRow">
+  <li>{{ name }}</li>
+</template>
+
+<template name="petForm">
+  <form class="new-pet">
+    <input type="text" name="name" placeholder="Type the name of the pet in adoption." />
+  </form>
+</template>
