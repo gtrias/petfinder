@@ -29,7 +29,9 @@ if (Meteor.isClient) {
       // Insert a task into the collection
       Pets.insert({
         name: name,
-        createdAt: new Date() // current time
+        createdAt: new Date(), // current time
+        owner: Meteor.userId(), // User owner id
+        username: Meteor.user().username // Username so we dont have to query each time
       });
 
       // Clear form
