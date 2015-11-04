@@ -25,7 +25,10 @@
 <template name="petRow">
   <li>
     {{ name }}
-    <button class="delete">&times;</button>
+    <strong>{{ username }}</strong>
+    {{#if isOwner}}
+      <button class="delete">&times;</button>
+    {{/if}}
   </li>
 </template>
 
