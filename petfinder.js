@@ -2,12 +2,21 @@ Pets = new Mongo.Collection("pets");
 
 if (Meteor.isClient) {
 
+  // Client helpers
   Template.petList.helpers({
       pets: function() {
-        return Pets.find({});
+        // Show newest pots on top
+        return Pets.find({}, {sort: {createdAt: -1}});
       }
   });
 
+  Template.body.helpers({
+    petsCount: function () {
+      return Pets.find({}).count();
+    }
+  });
+
+  // Client events
   Template.petForm.events({
     "submit .new-pet": function (event) {
 
@@ -25,6 +34,12 @@ if (Meteor.isClient) {
 
       // Clear form
       event.target.name.value = "";
+    }
+  });
+
+  Template.petRow.events({
+    "click .delete": function() {
+      Pets.remove(this._id);
     }
   });
 

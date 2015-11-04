@@ -5,6 +5,8 @@
 <body>
   <h1>Welcome to Petfinder!</h1>
 
+  <h2>We have {{ petsCount }} pets :)</h2>
+
   {{> petList}}
 
   {{> petForm}}
@@ -20,7 +22,10 @@
 </template>
 
 <template name="petRow">
-  <li>{{ name }}</li>
+  <li>
+    {{ name }}
+    <button class="delete">&times;</button>
+  </li>
 </template>
 
 <template name="petForm">
