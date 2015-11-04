@@ -30,7 +30,9 @@
 </template>
 
 <template name="petForm">
-  <form class="new-pet">
-    <input type="text" name="name" placeholder="Type the name of the pet in adoption." />
-  </form>
+  {{#if currentUser}}
+    <form class="new-pet">
+      <input type="text" name="name" placeholder="Type the name of the pet in adoption." />
+    </form>
+  {{#if}}
 </template>
