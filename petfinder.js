@@ -9,6 +9,7 @@ Meteor.methods({
 
     Pets.insert({
       name: name,
+      public: true,
       createdAt: new Date(), // current time
       owner: Meteor.userId(), // User owner id
       username: Meteor.user().username // Username so we dont have to query each time
@@ -71,7 +72,11 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.publish("pets", function () {
-    return Pets.find();
+    return Pets.find({
+      $or: [
+        { public: {$ne: true} },
+      ]
+    });
   });
 
   Meteor.startup(function () {
