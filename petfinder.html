@@ -15,11 +15,13 @@
 </body>
 
 <template name="petList">
-  <ul>
-    {{#each pets}}
-      {{> petRow}}
-    {{/each}}
-  </ul>
+  <div class="container">
+    <ul>
+      {{#each pets}}
+        {{> petRow}}
+      {{/each}}
+    </ul>
+  </div>
 </template>
 
 <template name="petRow">
