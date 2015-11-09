@@ -1,14 +1,10 @@
-<head>
-  <title>Petfinder</title>
-</head>
+<template name="ApplicationLayout">
+  {{#ionBody}}
+    {{> ionNavBar class="bar-positive"}}
 
-<body>
-  <h1>Welcome to Petfinder!</h1>
-  {{> loginButtons}}
+    {{#ionNavView}}
+      {{> yield}}
+    {{/ionNavView}}
 
-  <h2>We have {{ petsCount }} pets :)</h2>
-
-  {{> petList}}
-
-  {{> petForm}}
-</body>
+  {{/ionBody}}
+</template>
