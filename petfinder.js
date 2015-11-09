@@ -1,5 +1,9 @@
 Pets = new Mongo.Collection("pets");
 
+Images = new FS.Collection("images", {
+  stores: [new FS.Store.FileSystem("images", {path: "~/uploads"})]
+});
+
 Meteor.methods({
   addPet: function (name) {
     // Make sure the user is logged in before inserting a task
@@ -59,6 +63,13 @@ if (Meteor.isClient) {
 
       // Clear form
       event.target.name.value = "";
+    },
+    "change .file-uploader ": function (event, template) {
+      FS.Utility.eachFile(event, function(file) {
+        Images.insert(file, function (err, fileObj) {
+          // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+        });
+      });
     }
   });
 
@@ -67,15 +78,21 @@ if (Meteor.isClient) {
       Meteor.call("deletePet", this._id);
     }
   });
-
 }
 
 if (Meteor.isServer) {
+  Images.allow({
+    'insert': function () {
+      // add custom authentication code here
+      return true;
+    }
+  });
+
   Meteor.publish("pets", function () {
     return Pets.find({
-      $or: [
+      /* $or: [
         { public: {$ne: true} },
-      ]
+      ] */
     });
   });
 

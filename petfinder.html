@@ -11,33 +11,4 @@
   {{> petList}}
 
   {{> petForm}}
-
 </body>
-
-<template name="petList">
-  <div class="container">
-    <ul>
-      {{#each pets}}
-        {{> petRow}}
-      {{/each}}
-    </ul>
-  </div>
-</template>
-
-<template name="petRow">
-  <li>
-    {{ name }}
-    <strong>{{ username }}</strong>
-    {{#if isOwner}}
-      <button class="delete">&times;</button>
-    {{/if}}
-  </li>
-</template>
-
-<template name="petForm">
-  {{#if currentUser}}
-    <form class="new-pet">
-      <input type="text" name="name" placeholder="Type the name of the pet in adoption." />
-    </form>
-  {{/if}}
-</template>

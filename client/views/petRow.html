@@ -1,0 +1,10 @@
+<template name="petRow">
+  <li>
+    {{ name }}
+    <strong>{{ username }}</strong>
+    {{#if isOwner}}
+      <button class="delete">&times;</button>
+    {{/if}}
+  </li>
+</template>
+
