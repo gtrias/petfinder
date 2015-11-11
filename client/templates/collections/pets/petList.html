@@ -1,0 +1,10 @@
+<template name="petList">
+    <div class="list">
+        {{#each pets}}
+          <a class="item">
+            {{> petRow}}
+          </a>
+        {{/each}}
+    </div>
+</template>
+

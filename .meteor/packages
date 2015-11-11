@@ -27,3 +27,6 @@ iron:router
 meteoric:ionic-sass
 meteoric:ionicons-sass
 meteoric:ionic
+cfs:ejson-file
+aldeed:autoform
+aldeed:collection2
