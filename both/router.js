@@ -10,7 +10,9 @@ Router.route('/', function() {
 Router.route('/pets/create', {
   waitOn: function () {
     // return one handle, a function, or an array
-    return Meteor.subscribe('pets');
+    Meteor.subscribe('pets');
+    Meteor.subscribe('images');
+    return;
   },
   action: function () {
     this.render('pets-create');
