@@ -12,10 +12,16 @@ Pets.attachSchema(new SimpleSchema({
   },
   fileId: {
     type: String,
+    label: "Fotos",
+  },
+  location: {
+    type: String,
     autoform: {
+      type: "map",
       afFieldInput: {
-        type: "cfs-file",
-        collection: "Images"
+        geolocation: true,
+        searchBox: true,
+        autolocate: true
       }
     }
   }

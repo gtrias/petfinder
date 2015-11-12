@@ -1,10 +1,10 @@
 <template name="petList">
-    <div class="list">
+  {{#ionList avatar=true }}
         {{#each pets}}
           <a class="item">
             {{> petRow}}
           </a>
         {{/each}}
-    </div>
+  {{/ionList}}
 </template>
 

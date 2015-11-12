@@ -1,7 +1,13 @@
 <template name="home">
+  {{#contentFor "headerTitle"}}
+    <h1 class="title">Welcome to Petfinder!</h1>
+  {{/contentFor}}
+
   {{#ionContent}}
-    <h1>Welcome to Petfinder!</h1>
+
+  {{#contentFor "headerButtonRight"}}
     {{> loginButtons}}
+  {{/contentFor}}
 
     <h2>We have {{ petsCount }} pets :)</h2>
 
