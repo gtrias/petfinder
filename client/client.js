@@ -1,13 +1,9 @@
 Meteor.subscribe("pets");
+Meteor.subscribe("images");
+
+// AutoForm.setDefaultTemplate('ionic');
 
 // Client helpers
-Template.petList.helpers({
-  pets: function() {
-    // Show newest pots on top
-    return Pets.find({}, {sort: {createdAt: -1}});
-  }
-});
-
 Template.petRow.helpers({
   isOwner: function () {
     return this.owner === Meteor.userId();

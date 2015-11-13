@@ -31,7 +31,6 @@ cfs:ejson-file
 aldeed:autoform
 aldeed:collection2
 sanjo:jasmine
-velocity:html-reporter
 velocity:console-reporter
 iron:layout
 yogiben:autoform-map

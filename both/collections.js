@@ -13,9 +13,11 @@ Pets.attachSchema(new SimpleSchema({
     label: "Public?",
   },
   pictures: {
-    type: String,
+    type: [String],
     optional: true,
     label: "Fotos",
+  },
+  'pictures.$': {
     autoform: {
       afFieldInput: {
         type: 'fileUpload',
