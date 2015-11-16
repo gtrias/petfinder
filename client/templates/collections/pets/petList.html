@@ -1,7 +1,7 @@
 <template name="petList">
-  {{#ionList avatar=true }}
+  {{#ionList class="card" avatar=true }}
         {{#each pets}}
-          <a class="item">
+          <a class="item item-text-wrap">
             {{> petRow}}
           </a>
         {{/each}}

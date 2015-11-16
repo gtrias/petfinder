@@ -7,6 +7,10 @@ Pets.attachSchema(new SimpleSchema({
     label: "Nom",
     max: 200
   },
+  description: {
+    type: String,
+    label: "Descripció",
+  },
   public: {
     type: Boolean,
     optional: true,
