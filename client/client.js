@@ -1,7 +1,7 @@
 Meteor.subscribe("pets");
 Meteor.subscribe("images");
 
-// AutoForm.setDefaultTemplate('ionic');
+AutoForm.setDefaultTemplate('ionic');
 
 // Client helpers
 Template.petRow.helpers({
