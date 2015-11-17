@@ -1,5 +1,5 @@
 <template name="petRow">
-    {{ image pictures }}
+    <img src="{{ image.url }}" alt="" class="thumbnail" />
     {{ name }}
     <strong>{{ username }}</strong>
     {{#if isOwner}}

@@ -1,14 +1,12 @@
 // Client events
 Template.petRow.helpers({
-  image: function(pictures) {
-    if (pictures) {
-      pictures[0];
+  image: function() {
+    if (this.pictures) {
       image = Images.findOne({
-        _id: firstImage
+        _id: this.pictures[0]
       });
 
-      console.log(image);
-
+      return image;
     }
 
     return false;
