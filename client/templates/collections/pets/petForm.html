@@ -1,3 +1,10 @@
 <template name="petForm">
-  {{> quickForm collection="Pets" id="insertPetForm" type="insert"}}
+  {{#autoForm collection="Pets" id="insertPetForm" type="insert"}}
+    {{> afQuickField name='name'}}
+    {{> afQuickField name='description'}}
+    {{> afQuickField name='pictures'}}
+    {{> afQuickField name='location'}}
+
+    <button type="submit" class="button button-block button-balanced">Puja'l</button>
+  {{/autoForm}}
 </template>

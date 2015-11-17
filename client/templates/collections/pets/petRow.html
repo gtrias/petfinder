@@ -1,7 +1,8 @@
 <template name="petRow">
     <img src="{{ image.url }}" alt="" class="thumbnail" />
-    {{ name }}
-    <strong>{{ username }}</strong>
+    <h2>{{ name }}</h2>
+    <p>{{ description }}</p>
+    <span>{{ username }}</span>
     {{#if isOwner}}
       <button class="delete">&times;</button>
     {{/if}}
