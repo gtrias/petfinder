@@ -32,6 +32,5 @@ iron:layout
 yogiben:autoform-map
 msavin:mongol
 yogiben:autoform-file
-fourseven:scss@2.0.0
-meteoric:ionic-sass
-meteoric:ionicons-sass
+fourseven:scss@3.4.0-beta1
+seba:ionic-sass
