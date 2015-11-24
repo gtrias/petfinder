@@ -10,11 +10,17 @@ Pets.attachSchema(new SimpleSchema({
   description: {
     type: String,
     label: "Descripció",
+    autoform: {
+        rows: 10
+    }
   },
   public: {
     type: Boolean,
     optional: true,
     label: "Public?",
+    autoValue: function() {
+        return true;
+    }
   },
   pictures: {
     type: [String],
@@ -41,6 +47,12 @@ Pets.attachSchema(new SimpleSchema({
         autolocate: true
       }
     }
+  },
+  createdBy: {
+      type: String,
+      autoValue: function() {
+          return this.userId ? this.userId : "";
+      }
   }
 }));
 

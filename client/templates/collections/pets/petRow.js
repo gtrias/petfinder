@@ -10,5 +10,14 @@ Template.petRow.helpers({
     }
 
     return false;
+  },
+  isOwner: function() {
+    return this.createdBy == this.userId ? true : false;
   }
+});
+
+Template.petRow.events({
+    'click': function() {
+        Router.go('pets.show', {_id: this._id});
+    }
 });
