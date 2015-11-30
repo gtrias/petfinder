@@ -20,7 +20,6 @@ accounts-ui
 accounts-password
 cfs:standard-packages
 cfs:filesystem
-less
 nemo64:bootstrap
 iron:router
 meteoric:ionic
@@ -35,3 +34,5 @@ yogiben:autoform-file
 fourseven:scss@3.4.0-beta1
 seba:ionic-sass
 fastclick
+semantic:ui
+flemay:less-autoprefixer

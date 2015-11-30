@@ -1,13 +1,17 @@
 <template name="petRow">
-    <img src="{{ image.url }}" alt="" class="thumbnail" />
-    <h2>{{ name }}</h2>
-    <p>{{ description }}</p>
-    <span>{{ username }}</span>
-    {{#if isOwner}}
-      <button class="delete">&times;</button>
-    {{/if}}
-    <button class="button button-positive">
-        <i class="icon ion-ios-telephone"></i>
-    </button>
+    <div class="image">
+        <img src="{{ image.url }}" alt="" class="ui image thumbnail" />
+    </div>
+    <div class="content">
+        <h2>{{ name }}</h2>
+        <p>{{ description }}</p>
+        <span>{{ username }}</span>
+        {{#if isOwner}}
+          <button class="ui button delete">&times;</button>
+        {{/if}}
+        <button class="ui button button-positive">
+            <i class="icon ion-ios-telephone"></i>
+        </button>
+    </div>
 </template>
 
