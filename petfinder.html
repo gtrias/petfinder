@@ -3,7 +3,7 @@
 </head>
 <template name="ApplicationLayout">
   {{#ionBody}}
-    {{#ionNavBar class="bar-positive"}}
+    {{#ionNavBar class="bar-dark"}}
     {{/ionNavBar}}
 
     {{#ionNavView}}
@@ -11,4 +11,13 @@
     {{/ionNavView}}
 
   {{/ionBody}}
+
+  {{#contentFor "headerButtonLeft"}}
+    <button class="button icon ion-navicon"></button>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    {{> loginButtons}}
+  {{/contentFor}}
+
 </template>
