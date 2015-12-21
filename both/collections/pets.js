@@ -33,6 +33,7 @@ Pets.attachSchema(new SimpleSchema({
         type: 'fileUpload',
         accept: 'image/*',
         collection: 'Images',
+        selectFileBtnTemplate: 'selectFileButton',
       }
     }
   },
