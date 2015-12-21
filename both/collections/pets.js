@@ -36,7 +36,7 @@ Pets.attachSchema(new SimpleSchema({
       }
     }
   },
-  location: {
+  /* location: {
     type: String,
     optional: true,
     autoform: {
@@ -47,7 +47,7 @@ Pets.attachSchema(new SimpleSchema({
         autolocate: true
       }
     }
-  },
+  }, */
   createdBy: {
       type: String,
       autoValue: function() {
@@ -55,6 +55,27 @@ Pets.attachSchema(new SimpleSchema({
       }
   }
 }));
+
+Meteor.methods({
+  addPet: function (name, description) {
+    // Make sure the user is logged in before inserting a task
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+
+    Pets.insert({
+      name: name,
+      public: true,
+        createdAt: new Date(), // current time
+        owner: Meteor.userId(), // User owner id
+        username: Meteor.user().username // Username so we dont have to query each time
+    });
+  },
+
+  deletePet: function (petId) {
+    Pets.remove(petId);
+  },
+});
 
 Pets.allow({
   'insert': function () {
@@ -64,22 +85,4 @@ Pets.allow({
   'update': function() {
     return true;
   },
-});
-
-// Images collection
-Images = new FS.Collection("images", {
-  stores: [new FS.Store.FileSystem("images", {path: "~/uploads"})]
-});
-
-Images.allow({
-  'insert': function () {
-    // add custom authentication code here
-    return true;
-  },
-  'update': function() {
-    return true;
-  },
-  'download': function () {
-    return true;
-  }
 });
