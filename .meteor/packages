@@ -20,10 +20,8 @@ accounts-ui
 accounts-password
 cfs:standard-packages
 cfs:filesystem
-less
 nemo64:bootstrap
 iron:router
-meteoric:ionic
 cfs:ejson-file
 aldeed:autoform
 aldeed:collection2
@@ -36,3 +34,5 @@ seba:ionic-sass
 fastclick
 maodouio:autoform-file
 semantic:ui-sidebar
+semantic:ui
+flemay:less-autoprefixer
