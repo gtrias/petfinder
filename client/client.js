@@ -22,3 +22,11 @@ Template.petRow.events({
   }
 });
 
+Template.ApplicationLayout.events({
+  "click .button.icon.ion-navicon": function() {
+    console.log('Toggling menu');
+    $('.ui.left.sidebar')
+      .sidebar('toggle')
+    ;
+  }
+});

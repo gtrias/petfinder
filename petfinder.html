@@ -2,22 +2,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <template name="ApplicationLayout">
-  {{#ionBody}}
+  {{#ionBody class="pusher"}}
     {{#ionNavBar class="bar-dark"}}
     {{/ionNavBar}}
 
     {{#ionNavView}}
       {{> yield}}
     {{/ionNavView}}
-
   {{/ionBody}}
+
+  {{#contentFor "headerButtonRight"}}
+    {{> loginButtons align="right" }}
+  {{/contentFor}}
 
   {{#contentFor "headerButtonLeft"}}
     <button class="button icon ion-navicon"></button>
   {{/contentFor}}
 
-  {{#contentFor "headerButtonRight"}}
-    {{> loginButtons}}
-  {{/contentFor}}
-
+  {{> menu }}
 </template>

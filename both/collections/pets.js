@@ -57,6 +57,7 @@ Pets.attachSchema(new SimpleSchema({
   }
 }));
 
+// Deprecated, ?
 Meteor.methods({
   addPet: function (name, description) {
     // Make sure the user is logged in before inserting a task
