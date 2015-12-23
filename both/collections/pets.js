@@ -25,7 +25,7 @@ Pets.attachSchema(new SimpleSchema({
   pictures: {
     type: [String],
     optional: true,
-    label: "Fotos",
+    label: "Puja fotos de la mascota",
   },
   'pictures.$': {
     autoform: {
@@ -61,6 +61,7 @@ Meteor.methods({
   addPet: function (name, description) {
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
+      console.log("You are not allowed to insert without login.");
       throw new Meteor.Error("not-authorized");
     }
 
@@ -80,6 +81,11 @@ Meteor.methods({
 
 Pets.allow({
   'insert': function () {
+    if (! Meteor.userId()) {
+      console.log("You are not allowed to insert without login.");
+      throw new Meteor.Error("not-authorized");
+    }
+
     // add custom authentication code here
     return true;
   },

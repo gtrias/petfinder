@@ -2,9 +2,10 @@
   <div class="list">
     {{#autoForm collection="Pets" id="insertPetForm" type="insert" }}
 
+      {{> afQuickField name='pictures'}}
+
       {{> afQuickField name='name'}}
       {{> afQuickField name='description'}}
-      {{> afQuickField name='pictures'}}
       {{> afQuickField name='location'}}
 
       <button type="submit" class="button button-block button-balanced">Puja'l</button>
