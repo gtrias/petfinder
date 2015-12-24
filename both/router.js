@@ -2,8 +2,11 @@ Router.configure({
     layoutTemplate: 'ApplicationLayout'
 });
 
-Router.route('/', function() {
-  this.render('home');
+Router.route('/', {
+  action: function() {
+    this.render('home');
+  },
+  name: 'home'
 });
 
 Router.route('/pets/create', {

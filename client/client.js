@@ -2,7 +2,7 @@ Meteor.subscribe("pets");
 Meteor.subscribe("images");
 
 Meteor.startup( function () {
-  AutoForm.setDefaultTemplate('semanticUi');
+  AutoForm.setDefaultTemplate('semanticUI');
 });
 
 // Client helpers
