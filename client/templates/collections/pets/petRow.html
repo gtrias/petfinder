@@ -1,8 +1,12 @@
 <template name="petRow">
   <div class="ui slide masked reveal image">
-    <img src="{{ image.url }}" alt="" class="visible content" />
+    {{#each images}}
+      <img src="{{ url }}" alt="" class="content {{#if isFirst }}visible{{else}}hidden{{/if}}" />
+    {{/each}}
   </div>
   <div class="content">
+    <i class="right floated like icon"></i>
+    <i class="right floated star icon"></i>
     <h2 class="header">{{ name }}</h2>
     <p>{{ description }}</p>
     <span>{{ username }}</span>

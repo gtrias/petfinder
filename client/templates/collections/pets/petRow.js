@@ -1,12 +1,17 @@
 // Client events
 Template.petRow.helpers({
-  image: function() {
+  images: function() {
     if (this.pictures) {
-      image = Images.findOne({
-        _id: this.pictures[0]
+      images = Images.find({
+        _id: { $in: this.pictures }
+      }).map(function (image, index){
+        // Mark the first item
+        if (index == 0)
+          image.isFirst = true;
+        return image;
       });
 
-      return image;
+      return images;
     }
 
     return false;
