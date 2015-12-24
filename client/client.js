@@ -1,7 +1,9 @@
 Meteor.subscribe("pets");
 Meteor.subscribe("images");
 
-AutoForm.setDefaultTemplate('ionic');
+Meteor.startup( function () {
+  AutoForm.setDefaultTemplate('semanticUi');
+});
 
 // Client helpers
 Template.petRow.helpers({
@@ -22,11 +24,3 @@ Template.petRow.events({
   }
 });
 
-Template.ApplicationLayout.events({
-  "click .button.icon.ion-navicon": function() {
-    console.log('Toggling menu');
-    $('.ui.left.sidebar')
-      .sidebar('toggle')
-    ;
-  }
-});
