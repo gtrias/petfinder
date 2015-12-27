@@ -6,7 +6,7 @@ petfinder:
   links:
     - mongodb
   ports:
-    - 80:80
+    - 80
 
 mongodb:
    image: mongo
