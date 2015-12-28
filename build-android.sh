@@ -1,6 +1,6 @@
 #!/bin/bash
 
-meteor build ../Petfinder-build --server https://petfinder.genar.me
-jarsigner -digestalg SHA1 .meteor/local/cordova-build/platforms/android/ant-build/CordovaApp-release-unsigned.apk RocketChat
-~/.meteor/android_bundle/android-sdk/build-tools/21.0.0/zipalign 4 .meteor/local/cordova-build/platforms/android/ant-build/CordovaApp-release-unsigned.apk .meteor/local/cordova-build/platforms/android/ant-build/RocketChat-release-signed.apk
-open .meteor/local/cordova-build/platforms/android/ant-build/
+meteor build ../petfinder-build --server https://petfinder.casa.genar.me
+cd ../petfinder-build/android/
+jarsigner -digestalg SHA1 release-unsigned.apk petfinder
+~/Android/Sdk/build-tools/22.0.1/zipalign 4 release-unsigned.apk release-signed.apk
