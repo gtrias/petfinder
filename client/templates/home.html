@@ -8,7 +8,7 @@
   </div>
 
   {{#if currentUser}}
-    <p>Benvingut {{currentUser}}</p>
+    {{> dashboard}}
   {{else}}
     {{> register}}
     {{> login}}

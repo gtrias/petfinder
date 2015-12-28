@@ -17,7 +17,11 @@ Router.route('/pets/create', {
     return;
   },
   action: function () {
-    this.render('pets-create');
+    if (Meteor.userId()) {
+      this.render('pets-create');
+    } else {
+      this.render('login');
+    }
   },
   name: 'pets.create'
 });
