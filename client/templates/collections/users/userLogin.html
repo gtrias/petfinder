@@ -1,7 +1,14 @@
 <template name="login">
-  <form>
-    <input type="email" name="loginEmail">
-    <input type="password" name="loginPassword">
-    <input type="submit" value="Login">
-  </form>
+  <div class="ui message segment login">
+    <h2>Accedeix</h2>
+    <form class="ui form">
+      <div class="field">
+        <input type="email" placeholder="Email" name="loginEmail">
+      </div>
+      <div class="field">
+        <input type="password" placeholder="Password" name="loginPassword">
+      </div>
+      <input class="ui button" type="submit" value="Login">
+    </form>
+  </div>
 </template>
