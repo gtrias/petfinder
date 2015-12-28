@@ -7,12 +7,15 @@
     <h1 class="title">Tenim {{ petsCount }} mascotes :)</h1>
   </div>
 
+  {{#if currentUser}}
+    <p>Benvingut {{currentUser}}</p>
+  {{else}}
+    {{> register}}
+    {{> login}}
+  {{/if}}
 
-  {{! #ionContent class="has-subheader" }}
+  {{> petList}}
 
-    {{> petList}}
+  {{> petsCreateButton }}
 
-    {{> petsCreateButton }}
-
-  {{! /ionContent}}
 </template>
