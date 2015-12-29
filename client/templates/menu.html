@@ -8,9 +8,11 @@
       <i class="mail icon"></i>
       Missatges
     </a>
-    <a class="item signout">
-      <i class="sign out icon"></i>
-      Sortir
-    </a>
+    {{#if currentUser}}
+      <a class="item signout">
+        <i class="sign out icon"></i>
+        Sortir
+      </a>
+    {{/if}}
   </div>
 </template>

@@ -24,3 +24,9 @@ Template.petRow.events({
   }
 });
 
+// Top bar logout button
+Template.ApplicationLayout.events({
+  "click .item.signout": function() {
+    Meteor.logout();
+  }
+});

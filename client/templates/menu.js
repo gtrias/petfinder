@@ -14,6 +14,6 @@ Template.menu.events({
     Router.go('pets.create');
   },
   "click .item.signout": function() {
-    Router.go('pets.create');
+    Meteor.logout();
   }
 });
