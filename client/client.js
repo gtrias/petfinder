@@ -12,6 +12,10 @@ Template.petRow.helpers({
   }
 });
 
+Template.registerHelper("log", function(object) {
+    console.log(object);
+});
+
 Template.home.helpers({
   petsCount: function () {
     return Pets.find({}).count();
