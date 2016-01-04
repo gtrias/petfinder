@@ -1,2 +1,7 @@
 <template name="petMessages">
+  {{#each messages}}
+    <div class="column">
+      {{ message }}
+    </div>
+  {{/each}}
 </template>
