@@ -1,0 +1,13 @@
+<template name="petMessageForm">
+  <div class="list">
+    {{#autoForm collection="Messages" id="insertPetMessage" type="insert" }}
+
+      {{> afQuickField name='message'}}
+
+      <button type="submit" class="ui primary button">
+        <i class="send icon"></i>
+        Envia
+      </button>
+    {{/autoForm}}
+  </div>
+</template>

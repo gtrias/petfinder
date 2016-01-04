@@ -6,7 +6,6 @@ Template.petsShow.helpers({
         _id: { $in: this.pictures }
       });
 
-      console.log(images);
       return images;
     }
 
@@ -17,6 +16,6 @@ Template.petsShow.helpers({
 // petShow Events
 Template.petsShow.events({
   'click #chat': function () {
-    alert('open chat');
+    Router.go('pets.chat', {_id: this._id});
   }
 });

@@ -42,3 +42,22 @@ Router.route('/pets/:_id', {
   },
   name: 'pets.show'
 });
+
+// Pet request chat
+Router.route('/pets/:_id/chat', {
+  waitOn: function () {
+    // return one handle, a function, or an array
+    Meteor.subscribe('pets');
+    Meteor.subscribe('images');
+    Meteor.subscribe('messages');
+    return;
+  },
+  action: function () {
+    this.render('petsChat', {
+        'data': function () {
+            return Pets.findOne({_id: this.params._id});
+        }
+    });
+  },
+  name: 'pets.chat'
+});
