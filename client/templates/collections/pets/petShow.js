@@ -13,3 +13,10 @@ Template.petsShow.helpers({
     return false;
   }
 });
+
+// petShow Events
+Template.petsShow.events({
+  'click #chat': function () {
+    alert('open chat');
+  }
+});
