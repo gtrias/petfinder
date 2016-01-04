@@ -1,13 +1,15 @@
 <template name="petForm">
   <div class="list">
-    {{#autoForm collection="Pets" id="insertPetForm" type="insert" }}
+    {{#autoForm collection="Pets" id="petForm" type="insert" }}
 
       {{> afQuickField name='pictures'}}
 
       {{> afQuickField name='name'}}
       {{> afQuickField name='description'}}
 
-      <button type="submit" class="ui primary button">Puja'l</button>
+      <button type="submit" class="ui primary button">
+        Puja'l
+      </button>
     {{/autoForm}}
   </div>
 </template>

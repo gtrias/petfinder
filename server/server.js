@@ -6,6 +6,10 @@ Meteor.publish("pets", function () {
   });
 });
 
+Meteor.publish("messages", function () {
+  return Messages.find({});
+});
+
 Meteor.publish("images", function () {
   return Images.find({
   });

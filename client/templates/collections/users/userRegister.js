@@ -3,6 +3,7 @@ Template.register.events({
     event.preventDefault();
     var emailVar = event.target.registerEmail.value;
     var passwordVar = event.target.registerPassword.value;
+
     Accounts.createUser({
       email: emailVar,
       password: passwordVar

@@ -1,5 +1,6 @@
 Meteor.subscribe("pets");
 Meteor.subscribe("images");
+Meteor.subscribe("messages");
 
 Meteor.startup( function () {
   AutoForm.setDefaultTemplate('semanticUI');

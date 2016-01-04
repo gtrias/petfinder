@@ -9,19 +9,26 @@ Messages.attachSchema(new SimpleSchema({
         rows: 10
     }
   },
+  pet: {
+    type: String,
+    optional: true
+  },
   sender: {
-      type: String,
-      autoValue: function() {
-          return this.userId ? this.userId : "";
-      }
+    type: String,
+    autoValue: function() {
+      return this.userId ? this.userId : "";
+    }
   },
   receiver: {
-      type: String
+    type: String,
+    optional: true
   }
 }));
 
 Messages.allow({
   'insert': function () {
+    console.log("adding new message");
+
     if (! Meteor.userId()) {
       console.log("You are not allowed to chat without login.");
       throw new Meteor.Error("not-authorized");
@@ -31,6 +38,11 @@ Messages.allow({
     return true;
   },
   'update': function() {
-    return false;
+    if (! Meteor.userId()) {
+      console.log("You are not allowed to chat without login.");
+      throw new Meteor.Error("not-authorized");
+    }
+
+    return true;
   },
 });
