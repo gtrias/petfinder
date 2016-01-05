@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="acspanel" default="full-build">
+  <!-- By default, we assume all tools to be on the $PATH -->
+
+ <target name="full-build"
+   depends="prepare, meteor-install, meteor-build"
+   description="Performs static analysis, runs the tests, and generates project documentation"/>
+
+ <target name="clean"
+   unless="clean.done"
+   description="Cleanup build artifacts">
+   <property name="clean.done" value="true"/>
+ </target>
+
+ <target name="prepare"
+   unless="prepare.done"
+   depends="clean"
+   description="Prepare for build">
+   <property name="prepare.done" value="true"/>
+ </target>
+
+ <target name="meteor-install" description="Install meteor">
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh"/>
+   </exec>
+ </target>
+
+ <target name="meteor-build" description="Build meteor app">
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="meteor build ../petfinder-build --server https://petfinder.casa.genar.me"/>
+   </exec>
+ </target>
+
+ <target name="apk-sign" description="Sign the generated apk">
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="cd ../petfinder-build/android/"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="jarsigner -digestalg SHA1 -storepass:env JARSIGNER_STOREPASS -keypass:env JARSIGNER_STOREPASS release-unsigned.apk petfinder"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="rm -rf release-signed.apk"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="~/Android/Sdk/build-tools/22.0.1/zipalign 4 release-unsigned.apk release-signed.apk"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value='echo "" | mutt -a release-signed.apk -s "Here is the new petfinder version" -- gtrias@gmail.com'/>
+   </exec>
+ </target>
+
+</project>
