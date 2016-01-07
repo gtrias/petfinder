@@ -18,10 +18,6 @@ Messages.attachSchema(new SimpleSchema({
     autoValue: function() {
       return this.userId ? this.userId : "";
     }
-  },
-  receiver: {
-    type: String,
-    optional: true
   }
 }));
 
