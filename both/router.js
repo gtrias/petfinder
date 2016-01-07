@@ -56,7 +56,7 @@ Router.route('/pets/:_id/chat', {
     this.render('petsChat', {
         'data': function () {
             var pet = Pets.findOne({_id: this.params._id});
-            Session.set('currentPet', this.params._id);
+            Session.set('currentPet', pet);
             return pet;
         }
     });

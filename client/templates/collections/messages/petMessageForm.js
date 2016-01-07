@@ -4,7 +4,8 @@ var hooksObject = {
     insert: function (doc) {
       var currentPet = Session.get('currentPet');
       // console.log(currentPet);
-      doc.pet = currentPet;
+      doc.pet = currentPet._id;
+      doc.receiver = currentPet.createdBy;
       return doc;
     }
   }
