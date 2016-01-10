@@ -3,7 +3,7 @@
   <!-- By default, we assume all tools to be on the $PATH -->
 
  <target name="full-build"
-   depends="prepare, meteor-install, meteor-build"
+   depends="prepare, meteor-install, meteor-add-android, meteor-build"
    description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  <target name="clean"
@@ -23,6 +23,13 @@
    <exec executable="bash">
      <arg value="-c"/>
      <arg value="curl -sL https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh"/>
+   </exec>
+ </target>
+
+ <target name="meteor-add-android" description="Add android platform">
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="meteor add-platform android"/>
    </exec>
  </target>
 
