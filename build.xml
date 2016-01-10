@@ -40,26 +40,10 @@
    </exec>
  </target>
 
- <target name="apk-sign" description="Sign the generated apk">
+ <target name="meteor-build" description="Build meteor app">
    <exec executable="bash">
      <arg value="-c"/>
-     <arg value="cd ../petfinder-build/android/"/>
-   </exec>
-   <exec executable="bash">
-     <arg value="-c"/>
-     <arg value="jarsigner -digestalg SHA1 -storepass:env JARSIGNER_STOREPASS -keypass:env JARSIGNER_STOREPASS release-unsigned.apk petfinder"/>
-   </exec>
-   <exec executable="bash">
-     <arg value="-c"/>
-     <arg value="rm -rf release-signed.apk"/>
-   </exec>
-   <exec executable="bash">
-     <arg value="-c"/>
-     <arg value="~/Android/Sdk/build-tools/22.0.1/zipalign 4 release-unsigned.apk release-signed.apk"/>
-   </exec>
-   <exec executable="bash">
-     <arg value="-c"/>
-     <arg value='echo "" | mutt -a release-signed.apk -s "Here is the new petfinder version" -- gtrias@gmail.com'/>
+     <arg value="build-android.sh"/>
    </exec>
  </target>
 

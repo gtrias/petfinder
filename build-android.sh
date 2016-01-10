@@ -1,7 +1,7 @@
 #!/bin/bash
 
-meteor build ../petfinder-build --server https://petfinder.casa.genar.me
-cd ../petfinder-build/android/
+meteor build mobile-build --server https://petfinder.casa.genar.me
+cd mobile-build/android/
 jarsigner -digestalg SHA1 -storepass:env JARSIGNER_STOREPASS -keypass:env JARSIGNER_STOREPASS release-unsigned.apk petfinder
 
 rm -rf release-signed.apk
