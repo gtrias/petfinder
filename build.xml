@@ -42,8 +42,7 @@
 
  <target name="meteor-build-android" description="Build meteor app">
    <exec executable="bash">
-     <arg value="-c"/>
-     <arg value="/usr/bin/bash build-android.sh"/>
+     <arg value="build-android.sh"/>
    </exec>
  </target>
 
