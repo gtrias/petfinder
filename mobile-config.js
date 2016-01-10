@@ -1,7 +1,7 @@
 // This section sets up some basic app metadata,
 // the entire section is optional.
 App.info({
-    id: 'petfinder',
+    id: 'li.acs.genar.petfinder',
     version: '0.0.1',
     name: 'Petfinder',
     description: 'Petfinder',
