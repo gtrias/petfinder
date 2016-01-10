@@ -36,14 +36,14 @@
  <target name="meteor-build" description="Build meteor app">
    <exec executable="bash">
      <arg value="-c"/>
-     <arg value="meteor build ../petfinder-build --server https://petfinder.casa.genar.me"/>
+     <arg value="meteor build petfinder-build --server https://petfinder.casa.genar.me"/>
    </exec>
  </target>
 
  <target name="meteor-build-android" description="Build meteor app">
    <exec executable="bash">
      <arg value="-c"/>
-     <arg value="build-android.sh"/>
+     <arg value="/usr/bin/bash build-android.sh"/>
    </exec>
  </target>
 
