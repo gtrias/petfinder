@@ -3,7 +3,7 @@
   <!-- By default, we assume all tools to be on the $PATH -->
 
  <target name="full-build"
-   depends="prepare, meteor-install, meteor-add-android, meteor-build"
+   depends="prepare, meteor-install, meteor-add-android, meteor-build, meteor-build-android"
    description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  <target name="clean"
@@ -40,7 +40,7 @@
    </exec>
  </target>
 
- <target name="meteor-build" description="Build meteor app">
+ <target name="meteor-build-android" description="Build meteor app">
    <exec executable="bash">
      <arg value="-c"/>
      <arg value="build-android.sh"/>
