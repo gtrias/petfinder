@@ -3,7 +3,7 @@
   <!-- By default, we assume all tools to be on the $PATH -->
 
  <target name="full-build"
-   depends="prepare, meteor-install, meteor-add-android, meteor-build, meteor-build-android"
+   depends="prepare, meteor-install, meteor-build, apk-sign, docker-run"
    description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  <target name="clean"
@@ -26,13 +26,6 @@
    </exec>
  </target>
 
- <target name="meteor-add-android" description="Add android platform">
-   <exec executable="bash">
-     <arg value="-c"/>
-     <arg value="meteor add-platform android"/>
-   </exec>
- </target>
-
  <target name="meteor-build" description="Build meteor app">
    <exec executable="bash">
      <arg value="-c"/>
@@ -40,9 +33,37 @@
    </exec>
  </target>
 
- <target name="meteor-build-android" description="Build meteor app">
+ <target name="apk-sign" description="Sign the generated apk">
    <exec executable="bash">
-     <arg value="build-android.sh"/>
+     <arg value="-c"/>
+     <arg value="cd ../petfinder-build/android/"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="jarsigner -digestalg SHA1 -storepass:env JARSIGNER_STOREPASS -keypass:env JARSIGNER_STOREPASS release-unsigned.apk petfinder"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="rm -rf release-signed.apk"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value="~/Android/Sdk/build-tools/22.0.1/zipalign 4 release-unsigned.apk release-signed.apk"/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value='echo "" | mutt -a release-signed.apk -s "Here is the new petfinder version" -- gtrias@gmail.com'/>
+   </exec>
+ </target>
+
+ <target name="docker-run" description="Update the dockerized server">
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value='docker rm -f petfinder'/>
+   </exec>
+   <exec executable="bash">
+     <arg value="-c"/>
+     <arg value='docker run --restart=always --name petfinder -d -e VIRTUAL_HOST=petfinder.casa.genar.me -e ROOT_URL=http://petfinder.casa.genar.me  --link mongodb  -e MONGO_URL=mongodb://mongodb:27017/petfinder     -v /home/genar/src/meteorjs/petfinder-build:/bundle   -P     meteorhacks/meteord:base'/>
    </exec>
  </target>
 
