@@ -56,7 +56,7 @@
    </exec>
    <exec executable="bash">
      <arg value="-c"/>
-     <arg value='docker run --restart=always --name petfinder -d -e VIRTUAL_HOST=petfinder.casa.genar.me -e ROOT_URL=http://petfinder.casa.genar.me  --link mongodb  -e MONGO_URL=mongodb://mongodb:27017/petfinder     -v  ${basedir}/../petfinder-build:/bundle   -P  meteorhacks/meteord:base'/>
+     <arg value='docker run --restart=always --name petfinder -d -e VIRTUAL_HOST=petfinder.casa.genar.me -e ROOT_URL=http://petfinder.casa.genar.me  --link mongodb  -e MONGO_URL=mongodb://mongodb:27017/petfinder     -v  ${basedir}/../petfinder-build:/bundle -v  /home/genar/src/meteorjs/petfinder-files:/bundle/csf/files  -P  meteorhacks/meteord:base'/>
    </exec>
  </target>
 
