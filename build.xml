@@ -48,7 +48,7 @@
    </exec>
    <exec executable="bash">
      <arg value="-c"/>
-     <arg value="~/Android/Sdk/build-tools/22.0.1/zipalign 4 release-unsigned.apk release-signed.apk"/>
+     <arg value="$ANDROID_HOME/build-tools/22.0.1/zipalign 4 release-unsigned.apk release-signed.apk"/>
    </exec>
    <exec executable="bash">
      <arg value="-c"/>
