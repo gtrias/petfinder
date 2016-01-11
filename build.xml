@@ -3,7 +3,7 @@
   <!-- By default, we assume all tools to be on the $PATH -->
 
  <target name="full-build"
-   depends="prepare, meteor-install, meteor-build, apk-sign, docker-run"
+   depends="prepare, meteor-install, meteor-build, docker-run"
    description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  <target name="clean"
@@ -31,9 +31,6 @@
      <arg value="-c"/>
      <arg value="meteor build ../petfinder-build --server http://petfinder.casa.genar.me"/>
    </exec>
- </target>
-
- <target name="apk-sign" description="Sign the generated apk">
      <exec executable="bash" dir="${basedir}/../petfinder-build/android/">
      <arg value="-c"/>
      <arg value="jarsigner -digestalg SHA1 -storepass:env JARSIGNER_STOREPASS -keypass:env JARSIGNER_STOREPASS release-unsigned.apk petfinder"/>

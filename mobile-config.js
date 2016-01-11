@@ -18,5 +18,4 @@ App.setPreference('StatusBarBackgroundColor', '#000000');
 App.setPreference('ShowSplashScreenSpinner', false);
 App.setPreference('android-targetSdkVersion', '22');
 App.setPreference('android-minSdkVersion', '19');
-App.accessRule('*');
-
+App.accessRule("blob:*");
