@@ -34,23 +34,19 @@
  </target>
 
  <target name="apk-sign" description="Sign the generated apk">
-   <exec executable="bash">
-     <arg value="-c"/>
-     <arg value="cd ../petfinder-build/android/"/>
-   </exec>
-   <exec executable="bash">
+     <exec executable="bash" dir="${basedir}/../petfinder-build/android/">
      <arg value="-c"/>
      <arg value="jarsigner -digestalg SHA1 -storepass:env JARSIGNER_STOREPASS -keypass:env JARSIGNER_STOREPASS release-unsigned.apk petfinder"/>
    </exec>
-   <exec executable="bash">
+   <exec executable="bash"  dir="${basedir}/../petfinder-build/android/">
      <arg value="-c"/>
      <arg value="rm -rf release-signed.apk"/>
    </exec>
-   <exec executable="bash">
+   <exec executable="bash" dir="${basedir}/../petfinder-build/android/">
      <arg value="-c"/>
      <arg value="$ANDROID_HOME/build-tools/22.0.1/zipalign 4 release-unsigned.apk release-signed.apk"/>
    </exec>
-   <exec executable="bash">
+   <exec executable="bash"  dir="${basedir}/../petfinder-build/android/">
      <arg value="-c"/>
      <arg value='echo "" | mutt -a release-signed.apk -s "Here is the new petfinder version" -- gtrias@gmail.com'/>
    </exec>
@@ -63,7 +59,7 @@
    </exec>
    <exec executable="bash">
      <arg value="-c"/>
-     <arg value='docker run --restart=always --name petfinder -d -e VIRTUAL_HOST=petfinder.casa.genar.me -e ROOT_URL=http://petfinder.casa.genar.me  --link mongodb  -e MONGO_URL=mongodb://mongodb:27017/petfinder     -v /home/genar/src/meteorjs/petfinder-build:/bundle   -P     meteorhacks/meteord:base'/>
+     <arg value='docker run --restart=always --name petfinder -d -e VIRTUAL_HOST=petfinder.casa.genar.me -e ROOT_URL=http://petfinder.casa.genar.me  --link mongodb  -e MONGO_URL=mongodb://mongodb:27017/petfinder     -v  ${basedir}/../petfinder-build:/bundle   -P  meteorhacks/meteord:base'/>
    </exec>
  </target>
 
