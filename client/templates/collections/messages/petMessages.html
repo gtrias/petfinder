@@ -1,7 +1,8 @@
 <template name="petMessages">
-  {{#each messages}}
-    <div class="ui purple message">
-      {{ message }}
-    </div>
-  {{/each}}
+  <div class="ui comments">
+    <h3 class="ui dividing header">Missatges</h3>
+    {{#each messages}}
+      {{> petMessage }}
+    {{/each}}
+  </div>
 </template>
